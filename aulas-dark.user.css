@@ -1,0 +1,567 @@
+/* ==UserStyle==
+@name              Aulas3 Dark Theme
+@description       Dark theme for http://aulas3.uach.mx/
+@namespace         github.com/hectoraguirre18/aulas-dark
+@version           1.0.0
+@homepageURL       https://github.com/hectoraguirre18/aulas-dark/
+@supportURL        https://github.com/hectoraguirre18/aulas-dark/issues
+@license           CC-BY-1.0
+@preprocessor      less
+@advanced color    accent "Color scheme" #4fa1c9
+@advanced checkbox graybg "Use gray background" 0
+==/UserStyle== */
+
+@-moz-document domain("aulas3.uach.mx") {
+    /*---Utils---*/
+    @sat: 1 - @graybg;
+    
+    .custom-hsl(@hue-diff, @saturation, @lightness) {
+      @color: hsl(hue(@accent) + @hue-diff, @saturation*(1-@graybg), @lightness);
+    }
+    
+    .alpha(@base, @alpha) {
+      @color: hsla(hue(@base), saturation(@base), lightness(@base), @alpha);
+    }
+    
+    /*---Colors---*/
+    @text-color: #c5cad2;
+    @primary-very-dark: .custom-hsl(16, 13%, 15%)[@color];
+    @primary-dark: .custom-hsl(20, 13%, 18%)[@color];
+    @sidebar-color: .custom-hsl(19, 14%, 20%)[@color];
+    @muted-color: .custom-hsl(17, 15%, 52%)[@color];
+    
+    /*---General Classes---*/
+    .no-border() {
+      border: none !important;
+    }
+    
+    span {
+      color: @text-color !important;
+    }
+  
+    body {
+      background: @primary-very-dark !important;
+      color: @text-color !important;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h5 {
+      color: @text-color !important;
+    }
+    
+    :focus {
+      outline: none !important;
+    }
+    
+    .navbar {
+      background: @primary-dark !important;
+      
+      .nav li a:hover,
+      .nav li a:focus {
+        background-color: @accent !important;
+        color: white !important;
+      }
+      
+      .dropdown-menu {
+        border-bottom: 4px solid lighten(@accent, 8%) !important;
+        li a:hover {
+          background-color: @accent !important;
+          color: white !important;
+        }
+      }
+    }
+  
+    #wrapper {
+      .no-border();
+    }
+  
+    #page-header,
+    #page {
+      background: @primary-dark !important;
+    }
+  
+    .logo {
+      filter: invert(90%) !important;
+    }
+  
+    #inputName,
+    #user,
+    #pass,
+    #inputPassword {
+      background: .custom-hsl(25, 13%, 13%)[@color] !important;
+      .no-border();
+    }
+  
+    .navbar-inner,
+    .title,
+    .tab-pane,
+    .well,
+    .block {
+      background: .custom-hsl(18, 15%, 20%)[@color] !important;
+      border-color: lighten(@accent, 8%) !important;
+    }
+  
+    button,
+    .brand,
+    .btn,
+    .btn-primary,
+    .nav-item.active a,
+    input[type=submit],
+    #sidebar-btn,
+    .bx-prev,
+    .bx-next,
+    #page-footer .socials .social_icons a.social,
+    .navbar .nav li a:hover,
+    .navbar .nav li a:focus,
+    .navbar .dropdown-menu li a:hover,
+    .nav-tabs .active a,
+    .section-navigation a::after {
+      background-color: @accent !important;
+      color: white !important;
+    }
+  
+    .nav-item a,
+    .nav-tabs a {
+      background-color: transparent !important;
+    }
+  
+    a,
+    .tree_item.branch span,
+    h2::before,
+    #loggedin-user .usertext,
+    span.instancename,
+    a span {
+      color: lighten(@accent, 8%) !important;
+    }
+  
+    #sidebar .block-region,
+    .block_navigation {
+      background: @sidebar-color !important;
+      .no-border();
+      transition: 1s all ease, background 1ms !important;
+    }
+  
+    .camera_wrap {
+      display: none !important;
+    }
+  
+    .muted {
+      color: @muted-color !important;
+    }
+    
+    .generaltable {
+      td, th {
+        border-top: 1px solid .custom-hsl(19, 14%, 29%)[@color] !important;
+      }
+      
+      tbody tr {
+        &:nth-child(odd) {
+          td, th {
+            background: .custom-hsl(22, 13%, 19%)[@color] !important;
+          }
+        }
+        
+        &:hover {
+          td, th {
+            background: .custom-hsl(23, 13%, 21%)[@color] !important;
+          }
+        }
+        
+        td {
+          background: @primary-dark !important;
+        }
+      }
+    }
+  
+    td {
+      color: @text-color !important;
+    }
+  
+    #page-footer {
+      border-top: 3px solid @accent !important;
+    }
+    
+    .footerlinks {
+      background: @primary-dark !important;
+    }
+  
+    .breadcrumb span {
+      color: .custom-hsl(1, 53%, 73%)[@color] !important;
+      text-shadow: none !important;
+    }
+  
+    .navbar .dropdown-menu {
+      border-bottom: 4px solid lighten(@accent, 8%) !important;
+    }
+  
+    .nav-tabs {
+      border-bottom: 2px solid lighten(@accent, 8%) !important;
+    }
+  
+    .calendar_event_course {
+      background-color: rgba(255, 255, 255, .05) !important;
+    }
+  
+    .minicalendar.calendartable .calendar-controls {
+      background: transparent !important;
+    }
+  
+    button.btn.btn-link,
+    .section .activity .actions {
+      background-color: transparent !important;
+    }
+  
+    #page-content aside img {
+      width: auto !important;
+    }
+    
+    /*---Quizzes and tests---*/
+    .que {
+      .info,
+      .formulation {
+        background-color: .custom-hsl(18, 15%, 20%)[@color] !important;
+        .no-border();
+        color: @text-color !important;
+        text-shadow: none !important;
+      }
+      
+      .outcome {
+        background-color: .custom-hsl(18, 15%, 25%)[@color]  !important;
+        color: @text-color !important;
+        text-shadow: none !important;
+        .no-border();
+      }
+    }
+    
+    .formulation {
+      .correct {
+        background-color: #405837 !important;
+      }
+      .incorrect {
+        background-color: #583737 !important;
+      }
+    }
+    
+    .path-mod-quiz #mod_quiz_navblock .qnbutton {
+      background-color: .custom-hsl(16, 16%, 25%)[@color] !important;
+      
+      .thispageholder {
+        .no-border();
+      }
+      
+      &.notyetanswered .trafficlight,
+      &.invalidanswer .trafficlight {
+        background-color: .alpha(white, 0.02)[@color] !important;
+        .no-border();
+      }
+      
+      &.answersaved .trafficlight {
+        background-color: .alpha(white, 0.32)[@color] !important;
+        .no-border();
+      }
+    }
+  
+    input[type="text"],
+    textarea {
+      background-color: .custom-hsl(22, 24%, 16%)[@color] !important;
+      &:focus {
+        border-color: hsla(hue(@accent)+6, 80%, 62%, 0.6) !important;
+        box-shadow: 0 0 4px hsla(hue(@accent)+6, 80%, 62%, 0.6) !important;
+      }
+      color: #d0d3da !important;
+      .no-border();
+    }
+  
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .btn-primary.disabled,
+    .btn-primary[disabled] {
+      background-color: @accent !important;
+      color: white !important;
+    }
+    
+    .moodle-dialogue-base {
+      .moodle-dialogue-lightbox {
+        background-color: black !important;
+      }
+      
+      .moodle-dialogue-hd {
+        background: transparent !important;
+        text-shadow: none !important;
+        .no-border();
+      }
+      
+      .moodle-dialogue-bd {
+        color: @text-color !important;
+      }
+    }
+  
+    button.yui3-button.closebutton {
+      filter: invert(80%) !important;
+      box-shadow: none !important;
+    }
+    
+    
+    
+    /*---Scrollbar---*/
+    ::-webkit-scrollbar {
+      width: 12px;
+      &-track {
+        background: .alpha(white, 0.05)[@color];
+      }
+      &-thumb {
+        background: .alpha(white, 0.26)[@color];
+        &:hover {
+          background: .alpha(white, 0.63)[@color];
+        }
+      }
+    }
+    
+    
+  
+    /*---User Picture---*/
+    .welcome_userpicture {
+      border-radius: 8px !important;
+    }
+    
+    
+    
+    /*---Online Users---*/
+    .block_online_users {
+      ul {
+        white-space: nowrap !important;
+      }
+      .user{
+        width: 90% !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+      }
+      .message {
+        width: 5% !important;
+      }
+    }
+    
+    
+    
+    /*---Language Menu---*/
+    .langmenu .dropdown-menu {
+      background-color: .custom-hsl(20, 13%, 18%)[@color] !important;
+    }
+    
+    
+    
+    /*---File Upload---*/
+    .cleanbg() {
+      background-color: .custom-hsl(17, 15%, 28%)[@color] !important;
+      .no-border();
+    }
+    
+    .fp-pathbar {
+      .cleanbg();
+      .fp-path-folder {
+      background: url(@icon-path-folder-url) 0 0 no-repeat !important;
+      }
+    }
+    
+    .filemanager {
+      .fp-navbar {
+        .cleanbg();
+        border-top-left-radius: 16px !important;
+        border-top-right-radius: 16px !important;
+      }
+      
+      &-toolbar {
+        border-bottom: 2px solid @primary-dark  !important;
+        
+        .fp-btn-add,
+        .fp-btn-mkdir,
+        .fp-btn-download,
+        .fp-viewbar {
+          background-color: transparent !important;
+          .no-border();
+        }
+        
+        img.icon {
+          filter: brightness(0) invert() !important;
+        }
+        
+        .fp-viewbar a {
+          .no-border();
+          background-color: transparent !important;
+          background-image: none !important;
+          
+          &:not(.checked) {
+            filter: brightness(0) invert(50%) !important;
+          }
+        }
+        
+        a:hover {
+          background: .alpha(white, 0.1)[@color] !important;
+          transition: 0.3s !important;
+        }
+      }
+      
+      &-container {
+        .cleanbg();
+        border-bottom-left-radius: 16px !important;
+        border-bottom-right-radius: 16px !important;
+      }
+      
+      @table: yui3-datatable;
+      
+      .@{table}-header,
+      .@{table}-even .@{table}-cell{
+        background-color: .custom-hsl(17, 15%, 28%)[@color] !important;
+        font-size: 13px !important;
+        text-shadow: none !important;
+        color: @text-color !important;
+      }
+  
+      .@{table}-sort-indicator {
+        filter: brightness(0) invert();
+      }
+    }
+    
+    .fp-filename {
+      color: @text-color !important;
+    }
+  
+    a.fp-path-folder-name,
+    .nav.nav-tabs li.active span {
+      color: white !important;
+    }
+  
+    .fm-empty-container {
+      border-radius: 16px !important;
+    }
+  
+    .dndupload-arrow {
+      background: url(@icon-cloud-url) center no-repeat !important;
+      background-size: contain !important;
+      filter: invert(100%) !important;
+    }
+    
+    .filemanager-container .dndupload-target {
+      background-color: .custom-hsl(17, 15%, 28%)[@color] !important;
+      border-radius: 16px !important;
+      box-shadow: none !important;
+    }
+  
+    .dndupload-ready {
+      display: block
+    }
+    
+    .fp-iconview, .fp-info {
+      .fp-thumbnail,
+      img {
+        background: none !important;
+        box-shadow: none !important;
+        .no-border();
+      }
+      
+      .fp-filename-field {
+        overflow: visible !important;
+        .fp-filename {
+          background: none !important;
+          font-size: 13px !important;
+          padding: 0 !important;
+        }
+      }
+    }
+    
+    .fp-tableview {
+      table, th {
+        background-color: green !important;
+      }
+    }
+  
+    .moodle-dialogue-base .moodle-dialogue-wrap {
+      background: .custom-hsl(20, 13%, 23%)[@color] !important;
+      .no-border();
+      box-shadow: 5px 5px 20px 0 #111 !important;
+  
+      select {
+        background-color: .custom-hsl(22, 24%, 16%)[@color] !important;
+        color: @text-color !important;
+        .no-border();
+      }
+    }
+  
+    #fgroup_id_buttonar {
+      background-color: @primary-dark !important;
+      .no-border();
+    }
+  
+    input[name=cancel],
+    button.btn-cancel{
+      background-color: hsl(0, 0%, 48%) !important;
+      &:hover {
+        background-color: hsl(0, 0%, 44%) !important;
+      }
+    }
+  
+    .file-picker {
+      
+      .fp-repo-items {
+        margin-left: 0px !important;
+        
+        .fp-navbar,
+        .fp-content,
+        .mdl-align {
+          background: .custom-hsl(20, 13%, 23%)[@color] !important;
+          .no-border();
+        }
+      }
+      
+      .fp-repo-area {
+        background: .custom-hsl(20, 13%, 23%)[@color] !important;
+        .no-border();
+        
+        li.fp-repo {
+          &:hover {
+            background-color: .alpha(white, 0.02)[@color] !important;
+          }
+          &.active {
+            background-color: .alpha(white, 0.08)[@color] !important;
+            &:hover {
+              background-color: .alpha(white, 0.1)[@color] !important;
+            }
+          }
+        }
+      }
+      
+      .fp-viewbar {
+        background: transparent !important;
+        .no-border();
+        
+        img.icon {
+          filter: brightness(0) invert() !important;
+        }
+        
+        a {
+          .no-border();
+          background-color: transparent !important;
+          background-image: none !important;
+          
+          &:not(.checked) {
+            filter: brightness(0) invert(50%) !important;
+          }
+        }
+        
+        a:hover {
+          background: .alpha(white, 0.1)[@color] !important;
+          transition: 0.3s !important;
+        }
+      }
+    }
+    
+    
+    
+    /*---Icon Urls---*/
+    @icon-path-folder-url: "https://drive.google.com/uc?export=view&id=109UiOQng8RoKfdPP62X5VBG8Qd76d3w-";
+    @icon-cloud-url: "data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKIHdpZHRoPSIxMjguMDAwMDAwcHQiIGhlaWdodD0iMTI4LjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgMTI4LjAwMDAwMCAxMjguMDAwMDAwIgogcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCI+CjxtZXRhZGF0YT4KQ3JlYXRlZCBieSBwb3RyYWNlIDEuMTYsIHdyaXR0ZW4gYnkgUGV0ZXIgU2VsaW5nZXIgMjAwMS0yMDE5CjwvbWV0YWRhdGE+CjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLDEyOC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik01MzEgMTA1NSBjLTkxIC0yNiAtMTY0IC03OSAtMjIyIC0xNjEgLTIyIC0zMyAtMzYgLTQzIC02NyAtNDggLTU0Ci04IC0xNDUgLTcyIC0xODYgLTEyOSAtNDIgLTYwIC02MCAtMTMwIC01MyAtMjEzIDkgLTExNCA3OCAtMjEyIDE4NyAtMjYzIGw1NQotMjYgMzgzIC0zIGM0MjMgLTQgNDY0IDAgNTM5IDUxIDg1IDU4IDEzMSAxODMgMTA0IDI4MyAtMjQgOTEgLTEwNyAxNzMgLTE5OAoxOTYgLTI3IDYgLTQzIDE2IC00MyAyNSAwIDggLTEzIDQzIC0zMCA3NyAtNzkgMTY3IC0yODkgMjYxIC00NjkgMjExeiBtMjQ0Ci0zMzUgbDEzMCAtMTMwIC04MyAwIC04MiAwIDAgLTEwNSAwIC0xMDUgLTEwNSAwIC0xMDUgMCAwIDEwNSAwIDEwNSAtNzcgMAotNzggMCAxMzAgMTMwIGM3MSA3MiAxMzIgMTMwIDEzNSAxMzAgMyAwIDY0IC01OCAxMzUgLTEzMHoiLz4KPC9nPgo8L3N2Zz4=";
+  }
