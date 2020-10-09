@@ -1,8 +1,8 @@
 
 # Aulas3 Dark Theme
-![alt text](https://raw.githubusercontent.com/hectoraguirre18/aulas-dark/master/images/banner.png)
-A simple but cool dark theme for [UACH Aulas3](http://aulas3.uach.mx/)!
+<img src="https://raw.githubusercontent.com/hectoraguirre18/aulas-dark/master/images/banner.png" width="40%"><br/>
 
+A simple but cool dark theme for [UACH Aulas3](http://aulas3.uach.mx/)!
 
 
 ## Installation
