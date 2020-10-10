@@ -217,6 +217,12 @@
       width: auto !important;
     }
     
+    .course-content, #page-content {
+      span {
+        background-color: transparent !important;
+      }
+    }
+    
     /*---Quizzes and tests---*/
     .que {
       .info,
