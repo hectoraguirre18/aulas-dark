@@ -2,7 +2,7 @@
 @name              Aulas3 Dark Theme
 @description       Dark theme for http://aulas3.uach.mx/
 @namespace         github.com/hectoraguirre18/aulas-dark
-@version           1.1.0
+@version           1.1.1
 @homepageURL       https://github.com/hectoraguirre18/aulas-dark/
 @supportURL        https://github.com/hectoraguirre18/aulas-dark/issues
 @license           CC-BY-1.0
@@ -513,7 +513,7 @@ div[data-region="event-list-group-container"][data-start-day="-14"] {
   input[name=cancel],
   button.btn-cancel{
     background-color: hsl(0, 0%, 48%) !important;
-    &:hover {
+    &:hover, &:active, &:focus {
       background-color: hsl(0, 0%, 44%) !important;
     }
   }
@@ -573,6 +573,93 @@ div[data-region="event-list-group-container"][data-start-day="-14"] {
     }
   }
   
+    
+  
+  #id_onlinetext_editor_tbl {
+    .no-border();
+    
+    .darken-with-filters() {
+        filter: 
+          invert(0.7)
+          sepia(if(@graybg=0, 1, 0))
+          hue-rotate(unit(hue(@accent)-20, deg))
+          contrast(if(@graybg=0, 280%, 200%))
+          brightness(if(@graybg=0, 200%, 240%))
+          saturate(0.14);
+    }
+    
+    td.mceToolbar { 
+      border-top-left-radius: 16px !important;
+      border-top-right-radius: 16px !important;
+      background-color: white !important;
+      .darken-with-filters();
+      img {
+        filter: brightness(0);
+      }
+      
+      a[role="button"], td{
+        border: none !important;
+      }
+      
+      a.mceButtonEnabled:hover {
+        background-image: none !important;
+        background-color: #f5f5f5 !important;
+        transition: 0.2s !important;
+      }
+      
+      a.mceButtonActive {
+        background-image: none !important;
+        background-color: white !important;
+      }
+    }
+    
+    td.mceIframeContainer  {
+      .no-border();
+      #id_onlinetext_editor_ifr {
+        margin-top: 2px !important;
+        .no-border();
+        .darken-with-filters();
+      }
+    }
+    
+    td.mceStatusbar {
+      border: none !important;
+      background-color: white !important;
+      .darken-with-filters();
+      
+      border-bottom-left-radius: 16px !important;
+      border-bottom-right-radius: 16px !important;
+      
+      padding-bottom: 4px !important;
+      
+      #id_onlinetext_editor_path_row {
+        margin-left: 12px !important;
+      }
+      
+      #id_onlinetext_editor_resize {
+        background: none !important;
+      }
+    }
+  }
+
+  .mceMenu {
+    border: none !important;
+    table {
+      background-color: .custom-hsl(17, 15%, 28%)[@color] !important;
+    }
+    a{
+      background: transparent !important;
+      transition: 0.1s !important;
+      border: none !important;
+      &:hover {
+        background: .custom-hsl(17, 15%, 32%)[@color] !important;
+      }
+      span {
+        background: transparent !important;
+        cursor: pointer !important;
+      }
+    }
+  }
   
   
   /*---Icon Urls---*/
